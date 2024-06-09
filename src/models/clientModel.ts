@@ -1,0 +1,88 @@
+import { Model, DataTypes } from 'sequelize';
+import sequelize from '../postgres/pgConfig';
+
+class Client extends Model {
+  public id!: string;
+  public organizationId!: string;
+  public msaValidFrom!: Date;
+  public msaValidUpto!: Date;
+  public legalName!: string;
+  public ndaSignedOn!: Date;
+  public shortName!: string;
+  public ndaValidFrom!: Date;
+  public ndaValidUpto!: Date;
+  public addressId!: string;
+  public displayName!: string;
+  public isNDASigned!: boolean;
+  public isMSASigned!: boolean;
+  public msaSignedOn!: Date;
+  public readonly createdAt!: Date;
+  public readonly updatedAt!: Date;
+}
+
+Client.init(
+  {
+    id: {
+      type: DataTypes.STRING,
+      primaryKey: true,
+    },
+    organizationId: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    msaValidFrom: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    msaValidUpto: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    legalName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    ndaSignedOn: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    shortName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    ndaValidFrom: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    ndaValidUpto: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    addressId: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    displayName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    isNDASigned: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
+    isMSASigned: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
+    msaSignedOn: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+  },
+  {
+    sequelize,
+    tableName: 'clients',
+  }
+);
+
+export default Client;
