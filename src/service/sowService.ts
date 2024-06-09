@@ -14,8 +14,11 @@ export const getSOWById = async (sowId: string) => {
 };
 
 export const createSOWPaymentPlan = async (paymentPlanData: any) => {
-  const paymentPlan = await SOWPaymentPlan.create(paymentPlanData);
+  
+    
+    const paymentPlan = await SOWPaymentPlan.create(paymentPlanData);
   return paymentPlan;
+ 
 };
 
 export const createSOWPaymentPlanLineItem = async (lineItemData: any) => {

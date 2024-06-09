@@ -33,6 +33,7 @@ export const getSOWByIdController = async (req: Request, res: Response) => {
 
 export const createSOWPaymentPlanController = async (req: Request, res: Response) => {
   try {
+
     const paymentPlan = await createSOWPaymentPlan(req.body);
     res.status(201).json(paymentPlan);
   } catch (error:any) {

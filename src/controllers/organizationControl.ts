@@ -11,6 +11,7 @@ export const createOrganizationController = async (req: Request, res: Response) 
   }
 };
 
+
 export const getOrganizationsController = async (req: Request, res: Response) => {
   try {
     const organizations = await getOrganizations();
@@ -19,6 +20,7 @@ export const getOrganizationsController = async (req: Request, res: Response) =>
     res.status(500).json({ message: error.message });
   }
 };
+
 
 export const getOrganizationByIdController = async (req: Request, res: Response) => {
   try {

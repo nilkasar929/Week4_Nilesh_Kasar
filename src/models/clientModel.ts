@@ -1,5 +1,7 @@
-import { Model, DataTypes } from 'sequelize';
+import { Model, DataTypes, UUIDV4 } from 'sequelize';
 import sequelize from '../postgres/pgConfig';
+import Organization from './organizationModel';
+import customerAdd from './customerAdd';
 
 class Client extends Model {
   public id!: string;
@@ -23,12 +25,16 @@ class Client extends Model {
 Client.init(
   {
     id: {
-      type: DataTypes.STRING,
+      type:DataTypes.STRING,
       primaryKey: true,
     },
     organizationId: {
       type: DataTypes.STRING,
       allowNull: false,
+      references:{
+        model:Organization,
+        key:'id',
+      }
     },
     msaValidFrom: {
       type: DataTypes.DATE,
@@ -60,7 +66,8 @@ Client.init(
     },
     addressId: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
+      
     },
     displayName: {
       type: DataTypes.STRING,

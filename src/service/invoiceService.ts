@@ -5,12 +5,15 @@ import SOWPaymentPlan from '../models/sowPaymentPlan';
 import SOWPaymentPlanLineItem from '../models/sowPaymentPlanLineitem';
 
 export const generateInvoices = async () => {
-  const today = new Date();
+  //const today = new Date();
+  const today = '2024-04-01 05:30:00+05:30';
+  console.log(today)
   const paymentPlans = await SOWPaymentPlan.findAll({
     where: {
       plannedInvoiceDate: today,
     },
-  });
+    
+  } );
 
   const invoices = [];
   for (const plan of paymentPlans) {

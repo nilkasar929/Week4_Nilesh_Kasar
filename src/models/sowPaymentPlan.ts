@@ -1,5 +1,7 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../postgres/pgConfig';
+import SOW from './sowModel';
+import Client from './clientModel';
 
 class SOWPaymentPlan extends Model {
   public id!: string;
@@ -20,10 +22,18 @@ SOWPaymentPlan.init(
     sowId: {
       type: DataTypes.STRING,
       allowNull: false,
+      references:{
+        model:SOW,
+        key:'id',
+      }
     },
     customerId: {
       type: DataTypes.STRING,
       allowNull: false,
+      references:{
+        model:Client,
+        key:'id',
+      }
     },
     plannedInvoiceDate: {
       type: DataTypes.DATE,

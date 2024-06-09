@@ -1,5 +1,9 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../postgres/pgConfig';
+import SOW from './sowModel';
+import Client from './clientModel';
+
+
 
 class Invoice extends Model {
   public id!: string;
@@ -21,10 +25,15 @@ Invoice.init(
     id: {
       type: DataTypes.STRING,
       primaryKey: true,
+      
     },
     sowId: {
       type: DataTypes.STRING,
       allowNull: false,
+      references: {
+        model: SOW,
+        key: 'id',
+      },
     },
     totalInvoiceValue: {
       type: DataTypes.FLOAT,
@@ -41,6 +50,10 @@ Invoice.init(
     customerId: {
       type: DataTypes.STRING,
       allowNull: false,
+      references: {
+        model: Client,
+        key: 'id',
+      },
     },
     paymentReceivedOn: {
       type: DataTypes.DATE,

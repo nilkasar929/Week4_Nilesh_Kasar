@@ -1,5 +1,6 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../postgres/pgConfig';
+import Client from './clientModel';
 
 class SOW extends Model {
   public id!: string;
@@ -28,6 +29,10 @@ SOW.init(
     customerId: {
       type: DataTypes.STRING,
       allowNull: false,
+      references: {
+        model: Client,
+        key: 'id',
+      },
     },
     customerPONumber: {
       type: DataTypes.STRING,

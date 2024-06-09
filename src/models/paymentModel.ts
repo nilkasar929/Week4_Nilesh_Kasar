@@ -1,5 +1,8 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../postgres/pgConfig';
+import Invoice from './invoiceModel';
+
+
 
 class Payment extends Model {
   public id!: string;
@@ -39,6 +42,10 @@ Payment.init(
     invoiceId: {
       type: DataTypes.STRING,
       allowNull: false,
+      references:{
+        model:Invoice,
+        key:'id'
+      }
     },
     isFullPayment: {
       type: DataTypes.BOOLEAN,
