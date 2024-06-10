@@ -21,7 +21,6 @@ export const getOrganizationsController = async (req: Request, res: Response) =>
   }
 };
 
-
 export const getOrganizationByIdController = async (req: Request, res: Response) => {
   try {
     const organization = await getOrganizationById(req.params.id);
