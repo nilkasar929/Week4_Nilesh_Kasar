@@ -5,7 +5,7 @@ import Client from './clientModel';
 class SOW extends Model {
   public id!: string;
   public invoiceEmailAddresses!: string[];
-  public customerId!: string;
+  public clientId!: string;
   public customerPONumber!: string;
   public title!: string;
   public customerSONumber!: string;
@@ -26,7 +26,7 @@ SOW.init(
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false,
     },
-    customerId: {
+    clientId: {
       type: DataTypes.STRING,
       allowNull: false,
       references: {

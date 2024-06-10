@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getInvoiceByIdController = exports.getInvoicesController = exports.generateInvoicesController = void 0;
+exports.getInvoiceByIdController = exports.getInvoicesController = exports.createInvoiceLineItemController = exports.generateInvoicesController = void 0;
 const invoiceService_1 = require("../service/invoiceService");
 const generateInvoicesController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -21,6 +21,16 @@ const generateInvoicesController = (req, res) => __awaiter(void 0, void 0, void 
     }
 });
 exports.generateInvoicesController = generateInvoicesController;
+const createInvoiceLineItemController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const lineItem = yield (0, invoiceService_1.createInvoiceLineItem)(req.body);
+        res.status(201).json(lineItem);
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+exports.createInvoiceLineItemController = createInvoiceLineItemController;
 const getInvoicesController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const invoices = yield (0, invoiceService_1.getInvoices)();

@@ -6,8 +6,8 @@ import Client from './clientModel';
 class SOWPaymentPlan extends Model {
   public id!: string;
   public sowId!: string;
-  public customerId!: string;
-  public plannedInvoiceDate!: Date;
+  public clientId!: string;
+  public plannedInvoiceDate!: string;
   public totalActualAmount!: number;
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
@@ -27,7 +27,7 @@ SOWPaymentPlan.init(
         key:'id',
       }
     },
-    customerId: {
+    clientId: {
       type: DataTypes.STRING,
       allowNull: false,
       references:{
@@ -36,7 +36,7 @@ SOWPaymentPlan.init(
       }
     },
     plannedInvoiceDate: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     totalActualAmount: {

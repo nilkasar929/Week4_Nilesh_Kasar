@@ -11,7 +11,7 @@ class Invoice extends Model {
   public totalInvoiceValue!: number;
   public status!: string;
   public invoiceSentOn!: Date;
-  public customerId!: string;
+  public clientId!: string;
   public paymentReceivedOn!: Date;
   public invoiceVersionNumber!: number;
   public invoiceAmount!: number;
@@ -25,7 +25,7 @@ Invoice.init(
     id: {
       type: DataTypes.STRING,
       primaryKey: true,
-      
+
     },
     sowId: {
       type: DataTypes.STRING,
@@ -47,7 +47,7 @@ Invoice.init(
       type: DataTypes.DATE,
       allowNull: false,
     },
-    customerId: {
+    clientId: {
       type: DataTypes.STRING,
       allowNull: false,
       references: {
@@ -56,7 +56,7 @@ Invoice.init(
       },
     },
     paymentReceivedOn: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     invoiceVersionNumber: {

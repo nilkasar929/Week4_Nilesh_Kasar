@@ -16,8 +16,9 @@ class InvoiceLineItem extends Model {
 InvoiceLineItem.init(
   {
     id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       primaryKey: true,
+      autoIncrement:true
     },
     invoiceId: {
       type: DataTypes.STRING,

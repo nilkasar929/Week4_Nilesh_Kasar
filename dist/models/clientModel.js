@@ -12,6 +12,7 @@ Client.init({
     id: {
         type: sequelize_1.DataTypes.STRING,
         primaryKey: true,
+        allowNull: false
     },
     organizationId: {
         type: sequelize_1.DataTypes.STRING,

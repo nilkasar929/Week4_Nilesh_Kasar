@@ -44,7 +44,7 @@ Invoice.init({
     },
     paymentReceivedOn: {
         type: sequelize_1.DataTypes.DATE,
-        allowNull: true,
+        allowNull: false,
     },
     invoiceVersionNumber: {
         type: sequelize_1.DataTypes.INTEGER,

@@ -27,6 +27,7 @@ Client.init(
     id: {
       type:DataTypes.STRING,
       primaryKey: true,
+      allowNull:false
     },
     organizationId: {
       type: DataTypes.STRING,
@@ -52,6 +53,7 @@ Client.init(
       type: DataTypes.DATE,
       allowNull: false,
     },
+    
     shortName: {
       type: DataTypes.STRING,
       allowNull: false,

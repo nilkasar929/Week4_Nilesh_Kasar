@@ -12,14 +12,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getInvoiceById = exports.getInvoices = exports.generateInvoices = void 0;
+exports.getInvoiceById = exports.getInvoices = exports.createInvoiceLineItem = exports.generateInvoices = void 0;
 // src/services/invoiceService.ts
 const invoiceModel_1 = __importDefault(require("../models/invoiceModel"));
 const invoiceLineItem_1 = __importDefault(require("../models/invoiceLineItem"));
 const sowPaymentPlan_1 = __importDefault(require("../models/sowPaymentPlan"));
 const sowPaymentPlanLineitem_1 = __importDefault(require("../models/sowPaymentPlanLineitem"));
 const generateInvoices = () => __awaiter(void 0, void 0, void 0, function* () {
-    const today = new Date();
+    //const today = new Date();
+    const today = '2024-04-01';
+    console.log(today);
     const paymentPlans = yield sowPaymentPlan_1.default.findAll({
         where: {
             plannedInvoiceDate: today,
@@ -57,6 +59,11 @@ const generateInvoices = () => __awaiter(void 0, void 0, void 0, function* () {
     return invoices;
 });
 exports.generateInvoices = generateInvoices;
+const createInvoiceLineItem = (lineItemData) => __awaiter(void 0, void 0, void 0, function* () {
+    const lineItem = yield invoiceLineItem_1.default.create(lineItemData);
+    return lineItem;
+});
+exports.createInvoiceLineItem = createInvoiceLineItem;
 const getInvoices = () => __awaiter(void 0, void 0, void 0, function* () {
     const invoices = yield invoiceModel_1.default.findAll();
     return invoices;

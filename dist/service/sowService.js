@@ -28,13 +28,8 @@ const getSOWById = (sowId) => __awaiter(void 0, void 0, void 0, function* () {
 });
 exports.getSOWById = getSOWById;
 const createSOWPaymentPlan = (paymentPlanData) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const paymentPlan = yield sowPaymentPlan_1.default.create(paymentPlanData);
-        return paymentPlan;
-    }
-    catch (error) {
-        console.log(error);
-    }
+    const paymentPlan = yield sowPaymentPlan_1.default.create(paymentPlanData);
+    return paymentPlan;
 });
 exports.createSOWPaymentPlan = createSOWPaymentPlan;
 const createSOWPaymentPlanLineItem = (lineItemData) => __awaiter(void 0, void 0, void 0, function* () {
