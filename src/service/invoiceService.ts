@@ -6,11 +6,11 @@ import Client from '../models/clientModel';
 
 
 export const generateInvoices = async (data:any) => {
-  const today = '2024-04-01';
+  const date = '2024-04-01';
   
   const paymentPlans = await SOWPaymentPlan.findAll({
     where: {
-      plannedInvoiceDate: today,
+      plannedInvoiceDate: date,
     },
   });
 
@@ -56,11 +56,7 @@ export const generateInvoices = async (data:any) => {
         });
       }
 
-
-      invoices.push( invoice);
-
-      
-    
+      invoices.push( invoice);    
   }
 
   return invoices;
